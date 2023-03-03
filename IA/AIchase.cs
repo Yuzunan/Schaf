@@ -34,9 +34,7 @@ public class AIchase : MonoBehaviour
                     spurt = 0;
                 }
             }
-
-
-
         }
     }
+
 }

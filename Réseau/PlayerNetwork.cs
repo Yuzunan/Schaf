@@ -6,11 +6,23 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    public PlayerMovement PlayerMovement;
+    [SerializeField]
+    private float speed = 5f;
+    private float horizontal;
+    private float vertical;
+    private Rigidbody2D rb;
 
-    public override void OnNetworkSpawn()
+    private void Start()
     {
-        base.OnNetworkSpawn();
-        PlayerMovement.enabled = IsOwner;
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!IsOwner) return;
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+
+        rb.velocity = new Vector2(horizontal, vertical) * speed;
     }
 }

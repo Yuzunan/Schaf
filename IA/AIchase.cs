@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AIchase : MonoBehaviour
@@ -58,11 +59,22 @@ public class AIchase : MonoBehaviour
                 {
                     speed += spurt;
                     spurt = 0;
+                    if (distance < 1.5)
+                    {
+                        player.gameObject.GetComponent<PlayerHealth>().UpdateHealth(1);
+                        activate = false;
+                    }
                 }
             }
-
-
-
+        }
+        else
+        {
+            IEnumerator waiter()
+            {
+                yield return new WaitForSecondsRealtime(2);
+                this.GameObject().SetActive(false);
+            }
+            StartCoroutine(waiter());
         }
     }
 }

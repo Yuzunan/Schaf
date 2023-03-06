@@ -1,31 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.UI;
+using Unity.Netcode;
 
-public class NetworkManagerUI : MonoBehaviour
+namespace Schaf.Réseau
 {
-    [SerializeField] private Button serverButton;
-    [SerializeField] private Button hostButton;
-    [SerializeField] private Button clientButton;
-
-    private void Awake()
+    public class NetworkManagerUI : MonoBehaviour
     {
-        serverButton.onClick.AddListener(() =>
-        {
-            NetworkManager.Singleton.StartServer();
-        } );
-        
-        hostButton.onClick.AddListener(() =>
-        {
-            NetworkManager.Singleton.StartHost();
-        } );
-        
-        clientButton.onClick.AddListener(() =>
+        public void StartClient()
         {
             NetworkManager.Singleton.StartClient();
-        } );
+        }
+
+        public void StartHost()
+        {
+            NetworkManager.Singleton.StartHost();
+        }
+
+        public void StartServer()
+        {
+            NetworkManager.Singleton.StartServer();
+        }
     }
 }

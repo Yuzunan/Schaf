@@ -16,6 +16,8 @@ public class AIchase : MonoBehaviour
     public float spurt;
     public float distanceSpurt;
     public bool activate;
+
+    public float attackdmg;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +63,7 @@ public class AIchase : MonoBehaviour
                     spurt = 0;
                     if (distance < 1.5)
                     {
-                        player.gameObject.GetComponent<PlayerHealth>().UpdateHealth(1);
+                        player.gameObject.GetComponent<PlayerHealth>().UpdateHealth(attackdmg);
                         activate = false;
                     }
                 }

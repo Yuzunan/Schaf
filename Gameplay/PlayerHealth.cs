@@ -8,7 +8,11 @@ public class PlayerHealth : MonoBehaviour
 {
     private float health = 0f;
     [SerializeField] private float maxhealth = 3f;
-    public TextMeshProUGUI numbertext;
+    public SpriteRenderer spriteRenderer;
+    public Sprite DeadSprite;
+    public Sprite OneLifeSprite;
+    public Sprite TwoLifeSprite;
+    public Sprite ThreeLifeSprite;
     private void Start()
     {
         health = maxhealth;
@@ -30,7 +34,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void SetNumberText(float value)
     {
-        numbertext.text = value.ToString()+"♥";
+        if (value == 0)
+            spriteRenderer.sprite = DeadSprite;
+        else if (value == 1f)
+            spriteRenderer.sprite = OneLifeSprite;
+        else if (value == 2f)
+            spriteRenderer.sprite = TwoLifeSprite;
+        else
+            spriteRenderer.sprite = ThreeLifeSprite;
     }
     
 }

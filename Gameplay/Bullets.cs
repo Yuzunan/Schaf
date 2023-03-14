@@ -20,35 +20,38 @@ public class Bullets : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && color != "Red")
+        if (Time.timeScale != 0)
         {
-            color = "Red";
-            index = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && color != "Green")
-        {
-            color = "Green";
-            index = 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && color != "Orange")
-        {
-            color = "Orange";
-            index = 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && color != "Blue")
-        {
-            color = "Blue";
-            index = 3;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5) && color != "Yellow")
-        {
-            color = "Yellow";
-            index = 4;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6) && color != "Purple")
-        {
-            color = "Purple";
-            index = 5;
+            if (Input.GetKeyDown(KeyCode.Alpha1) && color != "Red")
+            {
+                color = "Red";
+                index = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && color != "Green")
+            {
+                color = "Green";
+                index = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && color != "Orange")
+            {
+                color = "Orange";
+                index = 2;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4) && color != "Blue")
+            {
+                color = "Blue";
+                index = 3;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5) && color != "Yellow")
+            {
+                color = "Yellow";
+                index = 4;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6) && color != "Purple")
+            {
+                color = "Purple";
+                index = 5;
+            }
         }
 
         if (!this.CompareTag(color))

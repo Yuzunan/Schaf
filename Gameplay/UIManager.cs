@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
     public TextMeshProUGUI restartText;
+    [SerializeField] private GameObject pausePanel;
     private bool isGameOver = false;
     public Sprite deadSprite;
     public Transform player;
@@ -28,20 +29,30 @@ public class UIManager : MonoBehaviour
             isGameOver = true;
             StartCoroutine(GameOverSequence());
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!isGameOver)
+            {
+                Time.timeScale = 0;
+                pausePanel.SetActive(true);
+            }
+        }
         if (isGameOver)
         {
             
             //If R is hit, restart the current scene
             if (Input.GetKeyDown(KeyCode.R))
             {
+                Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
             //If Q is hit, quit the game
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                print("Application Quit");
-                Application.Quit();
+                Time.timeScale = 1;
+                SceneManager.LoadScene(0);
             }
         }
         
@@ -52,6 +63,8 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(3.0f);
 
             restartText.gameObject.SetActive(true);
+            
+            Time.timeScale = 0;
         }
     }
 }

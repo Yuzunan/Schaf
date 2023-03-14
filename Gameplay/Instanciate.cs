@@ -6,13 +6,17 @@ public class Instanciate : MonoBehaviour
 {
     public GameObject monster;
     private GameObject monstre = null;
-
+    public Sprite DeadSprite;
+    private float place;
     public Transform player;
     // Start is called before the first frame update
     void Start()
     {
-         monstre = Instantiate(monster, new Vector3(-7, 4, 0), Quaternion.identity);
-         monster.GetComponent<AIchase>().player = player;
+        place = Random.Range((float)-8.0, (float)8.0);
+        while (place<4 && place>-4)
+            place = Random.Range((float)-8.0, (float)8.0);
+        monstre = Instantiate(monster, new Vector3(place, 5, 0), Quaternion.identity);
+        monster.GetComponent<AIchase>().player = player;
          
     }
 
@@ -27,5 +31,11 @@ public class Instanciate : MonoBehaviour
                 monstre = null;
             }
         }
+        else
+        {
+            if (player.GetComponent<PlayerHealth>().spriteRenderer.sprite != DeadSprite)
+                Start();
+        }
     }
+    
 }

@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AIchase : MonoBehaviour
 {
     public Transform player;
+    public GameObject color;
+    public string monstercolor;
     public SpriteRenderer spriteRenderer;
+    public Sprite[] UpSprites;
+    public Sprite[] LeftSprites;
+    public Sprite[] RightSprites;
+    public Sprite[] DownSprites;
     public Sprite UpSprite;
     public Sprite LeftSprite;
     public Sprite RightSprite;
@@ -21,7 +28,49 @@ public class AIchase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        tag = monstercolor;
+        if (monstercolor == "Red")
+        {
+            UpSprite = UpSprites[0];
+            LeftSprite = LeftSprites[0];
+            DownSprite = DownSprites[0];
+            RightSprite = RightSprites[0];
+        }
+        if (monstercolor == "Green")
+        {
+            UpSprite = UpSprites[1];
+            LeftSprite = LeftSprites[1];
+            DownSprite = DownSprites[1];
+            RightSprite = RightSprites[1];
+        }
+        if (monstercolor == "Orange")
+        {
+            UpSprite = UpSprites[2];
+            LeftSprite = LeftSprites[2];
+            DownSprite = DownSprites[2];
+            RightSprite = RightSprites[2];
+        }
+        if (monstercolor == "Blue")
+        {
+            UpSprite = UpSprites[3];
+            LeftSprite = LeftSprites[3];
+            DownSprite = DownSprites[3];
+            RightSprite = RightSprites[3];
+        }
+        if (monstercolor == "Yellow")
+        {
+            UpSprite = UpSprites[4];
+            LeftSprite = LeftSprites[4];
+            DownSprite = DownSprites[4];
+            RightSprite = RightSprites[4];
+        }
+        if (monstercolor == "Purple")
+        {
+            UpSprite = UpSprites[5];
+            LeftSprite = LeftSprites[5];
+            DownSprite = DownSprites[5];
+            RightSprite = RightSprites[5];
+        }
     }
 
     // Update is called once per frame
@@ -29,6 +78,20 @@ public class AIchase : MonoBehaviour
     {
         if (activate)
         {
+            if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) 
+            {
+                if ((color.CompareTag("Red") && CompareTag("Green")) ||
+                    (color.CompareTag("Green") && CompareTag("Red")) ||
+                    (color.CompareTag("Orange") && CompareTag("Blue")) ||
+                    (color.CompareTag("Blue") && CompareTag("Orange")) ||
+                    (color.CompareTag("Yellow") && CompareTag("Purple")) ||
+                    (color.CompareTag("Purple") && CompareTag("Yellow")))
+                {
+                    activate = false;
+                }
+                    
+            }
+            
             distance = Vector2.Distance(player.position, transform.position);
             Vector2 direction = player.transform.position - transform.position;
             if (direction.x > direction.y)

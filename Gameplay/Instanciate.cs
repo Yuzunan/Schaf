@@ -9,15 +9,42 @@ public class Instanciate : MonoBehaviour
     public Sprite DeadSprite;
     private float place;
     public Transform player;
+    private string[] monstercolor;
+    public GameObject color;
+    public int stage;
+    
     // Start is called before the first frame update
     void Start()
     {
+        int icolor = Random.Range(0, 6);
+        if (stage == 1)
+        {
+            monstercolor = new string[]{"Red" ,"Green"};
+            icolor = Random.Range(0, 2);
+        }
+        else if (stage == 2)
+        {
+            monstercolor = new string[]{"Orange","Blue"};
+            icolor = Random.Range(0, 2);
+        }
+        else if (stage == 3)
+        {
+            monstercolor = new string[]{"Yellow","Purple"};
+            icolor = Random.Range(0, 2);
+        }
+        else
+        {
+            monstercolor = new string[]{"Red" ,"Green","Orange","Blue","Yellow","Purple"};
+        }
+        
         place = Random.Range((float)-8.0, (float)8.0);
         while (place<4 && place>-4)
             place = Random.Range((float)-8.0, (float)8.0);
         monstre = Instantiate(monster, new Vector3(place, 5, 0), Quaternion.identity);
-        monster.GetComponent<AIchase>().player = player;
-         
+        monstre.GetComponent<AIchase>().monstercolor = monstercolor[icolor];
+        monstre.GetComponent<AIchase>().player = player;
+        monster.GetComponent<AIchase>().color = color;
+
     }
 
     // Update is called once per frame

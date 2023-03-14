@@ -98,7 +98,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  color: {fileID: 0}
+  monstercolor: Red
   spriteRenderer: {fileID: 3815242164293467844}
+  UpSprites:
+  - {fileID: 21300000, guid: c36e2720f1521cc418d3fcd358f758ae, type: 3}
+  - {fileID: 21300000, guid: eb1b3431a4d7064489ad6932c68aa376, type: 3}
+  - {fileID: 21300000, guid: 58524d44275f5c241bc6d04306da8ea9, type: 3}
+  - {fileID: 21300000, guid: edca9c697282d674c83ff800306d0092, type: 3}
+  - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
+  - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
+  LeftSprites:
+  - {fileID: 21300000, guid: e680b6cb750e25a409599dd395343143, type: 3}
+  - {fileID: 21300000, guid: eb1b3431a4d7064489ad6932c68aa376, type: 3}
+  - {fileID: 21300000, guid: 58524d44275f5c241bc6d04306da8ea9, type: 3}
+  - {fileID: 21300000, guid: edca9c697282d674c83ff800306d0092, type: 3}
+  - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
+  - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
+  RightSprites:
+  - {fileID: 21300000, guid: 1e2de8023482a2f4bbe12c3ac6d19c97, type: 3}
+  - {fileID: 21300000, guid: eb1b3431a4d7064489ad6932c68aa376, type: 3}
+  - {fileID: 21300000, guid: 58524d44275f5c241bc6d04306da8ea9, type: 3}
+  - {fileID: 21300000, guid: edca9c697282d674c83ff800306d0092, type: 3}
+  - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
+  - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
+  DownSprites:
+  - {fileID: 21300000, guid: 987d8bf77ab95cc4ea9ed0cb780807b6, type: 3}
+  - {fileID: 21300000, guid: eb1b3431a4d7064489ad6932c68aa376, type: 3}
+  - {fileID: 21300000, guid: 58524d44275f5c241bc6d04306da8ea9, type: 3}
+  - {fileID: 21300000, guid: edca9c697282d674c83ff800306d0092, type: 3}
+  - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
+  - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
   UpSprite: {fileID: 21300000, guid: c36e2720f1521cc418d3fcd358f758ae, type: 3}
   LeftSprite: {fileID: 21300000, guid: e680b6cb750e25a409599dd395343143, type: 3}
   RightSprite: {fileID: 21300000, guid: 1e2de8023482a2f4bbe12c3ac6d19c97, type: 3}

@@ -58,16 +58,8 @@ namespace Schaf.Réseau
                 CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
                 {
                     IsPrivate = false,
-                    Player = new Player
-                    {
-                        Data = new Dictionary<string, PlayerDataObject>
-                        {
-                            {"PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName)}
-                        }
-                    }
+                    Player = GetPlayer()
                 };
-                
-                
                 
                 Unity.Services.Lobbies.Models.Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(LobbyName, maxPlayers);
 
@@ -121,15 +113,59 @@ namespace Schaf.Réseau
         {
             try
             {
+                JoinLobbyByIdOptions joinLobbyByIdOptions = new JoinLobbyByIdOptions
+                {
+                    Player = GetPlayer()
+                };
                 QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
-                await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id);
+                await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id, joinLobbyByIdOptions);
             }
             catch (LobbyServiceException e)
             {
                 Debug.Log(e);
                 throw;
             }
-            
+        }
+        
+        private async void JoinLobbyByCode(string lobbyCode)
+        {
+            try
+            {
+                JoinLobbyByCodeOptions joinLobbyByCodeOptions = new JoinLobbyByCodeOptions
+                {
+                    Player = GetPlayer()
+                };
+                await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode, joinLobbyByCodeOptions);
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.Log(e);
+                throw;
+            }
+        }
+        
+        private async void QuickJoinLobby()
+        {
+            try
+            {
+                await Lobbies.Instance.QuickJoinLobbyAsync();
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.Log(e);
+                throw;
+            }
+        }
+
+        private Player GetPlayer()
+        {
+            return new Player
+            {
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
+                }
+            };
         }
 
         private void PrintPlayers(Unity.Services.Lobbies.Models.Lobby lobby)
@@ -141,7 +177,19 @@ namespace Schaf.Réseau
             }
         }
 
+        private async void LeaveLobby()
+        {
+            try
+            {
+                await LobbyService.Instance.RemovePlayerAsync(_hostLobby.Id, AuthenticationService.Instance.PlayerId);
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.Log(e);
+                throw;
+            }
+        }
+
     }
-    
-    
+
 }

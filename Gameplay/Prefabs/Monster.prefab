@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3815242164293467842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.32, y: 3.81, z: 0}
-  m_LocalScale: {x: 0.63403916, y: 0.6518757, z: 1}
+  m_LocalScale: {x: 0.30080265, y: 0.2923255, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e2de8023482a2f4bbe12c3ac6d19c97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d84c93032282604c883a5d731606955, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,16 +123,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
   - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
   DownSprites:
-  - {fileID: 21300000, guid: 987d8bf77ab95cc4ea9ed0cb780807b6, type: 3}
-  - {fileID: 21300000, guid: eb1b3431a4d7064489ad6932c68aa376, type: 3}
-  - {fileID: 21300000, guid: 58524d44275f5c241bc6d04306da8ea9, type: 3}
-  - {fileID: 21300000, guid: edca9c697282d674c83ff800306d0092, type: 3}
-  - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
-  - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
+  - {fileID: 21300000, guid: 3d84c93032282604c883a5d731606955, type: 3}
+  - {fileID: 21300000, guid: 460aaf1e5cce2b941af0aab3085c3069, type: 3}
+  - {fileID: 21300000, guid: e4ca97bc516b5634488490deeb9c64c5, type: 3}
+  - {fileID: 21300000, guid: 559311c1b4d4b2c4c9831dc680848bfa, type: 3}
+  - {fileID: 21300000, guid: fa7ff3eb8128c494db88d1222384016c, type: 3}
+  - {fileID: 21300000, guid: a2d07a14e53ae9e46a557a27d5090541, type: 3}
   UpSprite: {fileID: 21300000, guid: c36e2720f1521cc418d3fcd358f758ae, type: 3}
   LeftSprite: {fileID: 21300000, guid: e680b6cb750e25a409599dd395343143, type: 3}
   RightSprite: {fileID: 21300000, guid: 1e2de8023482a2f4bbe12c3ac6d19c97, type: 3}
-  DownSprite: {fileID: 21300000, guid: 987d8bf77ab95cc4ea9ed0cb780807b6, type: 3}
+  DownSprite: {fileID: 21300000, guid: 3d84c93032282604c883a5d731606955, type: 3}
   speed: 4
   spurt: 2
   distanceSpurt: 3

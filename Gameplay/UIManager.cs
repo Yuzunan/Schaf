@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI restartText;
     [SerializeField] private GameObject pausePanel;
     private bool isGameOver = false;
+    [SerializeField] private GameObject winPanel;
     public Sprite deadSprite;
     public Transform player;
     
@@ -38,7 +39,7 @@ public class UIManager : MonoBehaviour
                 pausePanel.SetActive(true);
             }
         }
-        if (isGameOver)
+        if (isGameOver ^ winPanel.activeSelf)
         {
             
             //If R is hit, restart the current scene

@@ -570,15 +570,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 282507906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89eced7ff8448e1b8f2ab21d2af55fb, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d5f2a594564757bf2ce9fb6be9c088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 282507909}
   SpriteArray:
-  - {fileID: 21300000, guid: a3991dbd12214714280433e49dfd4101, type: 3}
-  - {fileID: 21300000, guid: eb1b3431a4d7064489ad6932c68aa376, type: 3}
-  - {fileID: 21300000, guid: 58524d44275f5c241bc6d04306da8ea9, type: 3}
-  - {fileID: 21300000, guid: edca9c697282d674c83ff800306d0092, type: 3}
   - {fileID: 21300000, guid: be21185d756bb6543b0b9a3feda0a4f4, type: 3}
   - {fileID: 21300000, guid: 8fc71ef570a39d34d98cdae22127f19f, type: 3}
 --- !u!4 &282507908
@@ -2509,7 +2505,7 @@ MonoBehaviour:
   DeadSprite: {fileID: 21300000, guid: d66023558e226f949a7fad29403184f9, type: 3}
   player: {fileID: 78258076}
   color: {fileID: 282507906}
-  stage: 4
+  stage: 3
 --- !u!4 &1593500742
 Transform:
   m_ObjectHideFlags: 0

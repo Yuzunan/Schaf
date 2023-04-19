@@ -28,6 +28,7 @@ public class AIchase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed *= Random.Range((float)0.5, (float)1.5);
         tag = monstercolor;
         if (monstercolor == "Red")
         {

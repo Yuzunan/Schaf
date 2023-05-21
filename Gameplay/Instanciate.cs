@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Instanciate : MonoBehaviour
 {
-    public GameObject monster;
+    public GameObject[] monster;
     private GameObject monstre = null;
     public Sprite DeadSprite;
     private float place;
@@ -16,23 +16,34 @@ public class Instanciate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int num = Random.Range(0, 3);
         place = Random.Range((float)-8.0, (float)8.0);
         while (place<4 && place>-4)
             place = Random.Range((float)-8.0, (float)8.0);
-        monstre = Instantiate(monster, new Vector3(place, 5, 0), Quaternion.identity);
+        monstre = Instantiate(monster[num], new Vector3(place, 5, 0), Quaternion.identity);
         
         int icolor = Random.Range(0, 6);
         if (stage == 1)
         {
             monstercolor = new string[]{"Red" ,"Green"};
             icolor = Random.Range(0, 2);
-            monstre.GetComponent<AIchase>().speed = 2;
+            if (monster[num].name == "MonsterZigZag")
+                monstre.GetComponent<AIchaseZigZag>().speed = 2;
+            else if (monster[num].name == "MonsterBoucles")
+                monstre.GetComponent<AIchaseBoucles>().speed = 2;
+            else
+                monstre.GetComponent<AIchaseLegereBoucle>().speed = 2;
         }
         else if (stage == 2)
         {
             monstercolor = new string[]{"Orange","Blue"};
             icolor = Random.Range(0, 2);
-            monstre.GetComponent<AIchase>().speed = 3;
+            if (monster[num].name == "MonsterZigZag")
+                monstre.GetComponent<AIchaseZigZag>().speed = 3;
+            else if (monster[num].name == "MonsterBoucles")
+                monstre.GetComponent<AIchaseBoucles>().speed = 3;
+            else
+                monstre.GetComponent<AIchaseLegereBoucle>().speed = 3;
         }
         else if (stage == 3)
         {
@@ -43,9 +54,25 @@ public class Instanciate : MonoBehaviour
         {
             monstercolor = new string[]{"Red" ,"Green","Orange","Blue","Yellow","Purple"};
         }
-        monstre.GetComponent<AIchase>().monstercolor = monstercolor[icolor];
-        monstre.GetComponent<AIchase>().player = player;
-        monstre.GetComponent<AIchase>().color = color;
+
+        if (monster[num].name == "MonsterZigZag")
+        {
+            monstre.GetComponent<AIchaseZigZag>().monstercolor = monstercolor[icolor];
+            monstre.GetComponent<AIchaseZigZag>().player = player;
+            monstre.GetComponent<AIchaseZigZag>().color = color;
+        }
+        else if (monster[num].name == "MonsterBoucles")
+        {
+            monstre.GetComponent<AIchaseBoucles>().monstercolor = monstercolor[icolor];
+            monstre.GetComponent<AIchaseBoucles>().player = player;
+            monstre.GetComponent<AIchaseBoucles>().color = color;
+        }
+        else
+        {
+            monstre.GetComponent<AIchaseLegereBoucle>().monstercolor = monstercolor[icolor];
+            monstre.GetComponent<AIchaseLegereBoucle>().player = player;
+            monstre.GetComponent<AIchaseLegereBoucle>().color = color;
+        }
 
     }
 

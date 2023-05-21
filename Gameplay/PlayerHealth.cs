@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void SetNumberText(float value)
     {
-        if (value == 0)
+        if (value <= 0)
             spriteRenderer.sprite = DeadSprite;
         else if (value == 1f)
             spriteRenderer.sprite = OneLifeSprite;

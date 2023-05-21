@@ -2214,7 +2214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08bb7896a7d0a746b9561769b15cdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 3815242164293467842, guid: 1a7bdda8226277544aa7a2de560ca037, type: 3}
+  monster:
+  - {fileID: 3815242164293467842, guid: d959b3d15e0e4de49ac03a42c30b7a7d, type: 3}
+  - {fileID: 3815242164293467842, guid: 92d80215911eff446bd798402bb9d949, type: 3}
+  - {fileID: 3815242164293467842, guid: 03f41df82e9d9b44eb7c4c33a913a707, type: 3}
   DeadSprite: {fileID: 21300000, guid: d66023558e226f949a7fad29403184f9, type: 3}
   player: {fileID: 78258076}
   color: {fileID: 282507906}
@@ -2550,7 +2553,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee25e79efab22b48a75bd09943d694b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 3815242164293467842, guid: 1a7bdda8226277544aa7a2de560ca037, type: 3}
+  monster:
+  - {fileID: 3815242164293467842, guid: d959b3d15e0e4de49ac03a42c30b7a7d, type: 3}
+  - {fileID: 3815242164293467842, guid: 92d80215911eff446bd798402bb9d949, type: 3}
+  - {fileID: 3815242164293467842, guid: 03f41df82e9d9b44eb7c4c33a913a707, type: 3}
   DeadSprite: {fileID: 21300000, guid: d66023558e226f949a7fad29403184f9, type: 3}
   player: {fileID: 78258076}
   color: {fileID: 282507906}

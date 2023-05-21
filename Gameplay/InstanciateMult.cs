@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class InstanciateMult : MonoBehaviour
 {
-    public GameObject monster;
+    public GameObject[] monster;
     private GameObject monstre = null;
     public Sprite DeadSprite;
     private float place;
@@ -13,28 +12,38 @@ public class InstanciateMult : MonoBehaviour
     private string[] monstercolor;
     public GameObject color;
     public int stage;
-    public TextMeshProUGUI score;
-
+    
     // Start is called before the first frame update
     void Start()
     {
+        int num = Random.Range(0, 3);
         place = Random.Range((float)-8.0, (float)8.0);
         while (place<4 && place>-4)
             place = Random.Range((float)-8.0, (float)8.0);
-        monstre = Instantiate(monster, new Vector3(place, 5, 0), Quaternion.identity);
+        monstre = Instantiate(monster[num], new Vector3(place, 5, 0), Quaternion.identity);
         
         int icolor = Random.Range(0, 6);
         if (stage == 1)
         {
             monstercolor = new string[]{"Red" ,"Green"};
             icolor = Random.Range(0, 2);
-            monstre.GetComponent<AIchase>().speed = 2;
+            if (monster[num].name == "MonsterZigZagMult")
+                monstre.GetComponent<AIchaseZigZagMult>().speed = 2;
+            else if (monster[num].name == "MonsterBouclesMult")
+                monstre.GetComponent<AIchaseBouclesMult>().speed = 2;
+            else
+                monstre.GetComponent<AIchaseLegereBoucleMult>().speed = 2;
         }
         else if (stage == 2)
         {
             monstercolor = new string[]{"Orange","Blue"};
             icolor = Random.Range(0, 2);
-            monstre.GetComponent<AIchase>().speed = 3;
+            if (monster[num].name == "MonsterZigZagMult")
+                monstre.GetComponent<AIchaseZigZagMult>().speed = 3;
+            else if (monster[num].name == "MonsterBouclesMult")
+                monstre.GetComponent<AIchaseBouclesMult>().speed = 3;
+            else
+                monstre.GetComponent<AIchaseLegereBoucleMult>().speed = 3;
         }
         else if (stage == 3)
         {
@@ -45,10 +54,25 @@ public class InstanciateMult : MonoBehaviour
         {
             monstercolor = new string[]{"Red" ,"Green","Orange","Blue","Yellow","Purple"};
         }
-        monstre.GetComponent<AIchaseMult>().monstercolor = monstercolor[icolor];
-        monstre.GetComponent<AIchaseMult>().player = player;
-        monstre.GetComponent<AIchaseMult>().color = color;
-        monstre.GetComponent<AIchaseMult>().score = score;
+
+        if (monster[num].name == "MonsterZigZagMult")
+        {
+            monstre.GetComponent<AIchaseZigZagMult>().monstercolor = monstercolor[icolor];
+            monstre.GetComponent<AIchaseZigZagMult>().player = player;
+            monstre.GetComponent<AIchaseZigZagMult>().color = color;
+        }
+        else if (monster[num].name == "MonsterBouclesMult")
+        {
+            monstre.GetComponent<AIchaseBouclesMult>().monstercolor = monstercolor[icolor];
+            monstre.GetComponent<AIchaseBouclesMult>().player = player;
+            monstre.GetComponent<AIchaseBouclesMult>().color = color;
+        }
+        else
+        {
+            monstre.GetComponent<AIchaseLegereBoucleMult>().monstercolor = monstercolor[icolor];
+            monstre.GetComponent<AIchaseLegereBoucleMult>().player = player;
+            monstre.GetComponent<AIchaseLegereBoucleMult>().color = color;
+        }
 
     }
 

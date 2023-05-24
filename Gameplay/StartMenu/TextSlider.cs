@@ -18,7 +18,7 @@ public class TextSlider : MonoBehaviour
 
     public void SetNumberText(float value)
     {
-        numbertext.text = value.ToString();
+        numbertext.text = ((int)(value*100)).ToString();
     }
 }
 

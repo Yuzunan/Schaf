@@ -93,7 +93,7 @@ public class AIchaseLegereBoucleMult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (activate && distance >= 1)
+        if (activate && distance >= 1 && Time.deltaTime != 0)
         {
             if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) 
             {
@@ -158,7 +158,8 @@ public class AIchaseLegereBoucleMult : MonoBehaviour
                 yield return new WaitForSecondsRealtime(2);
                 this.GameObject().SetActive(false);
             }
-            StartCoroutine(waiter());
+            if (Time.deltaTime != 0)
+                StartCoroutine(waiter());
         }
     }
 }

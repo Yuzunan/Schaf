@@ -206,7 +206,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &10956490
 Canvas:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 78258076}
   - component: {fileID: 78258077}
   - component: {fileID: 78258078}
+  - component: {fileID: 78258079}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -408,6 +409,22 @@ MonoBehaviour:
   OneLifeSprite: {fileID: 21300000, guid: 0c88d3cca45536a49a48ebf3e938f699, type: 3}
   TwoLifeSprite: {fileID: 21300000, guid: edf166ef10fe5ec459750880501a1115, type: 3}
   ThreeLifeSprite: {fileID: 21300000, guid: d201b37ef97ad744b923c925afcba39d, type: 3}
+--- !u!114 &78258079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78258075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 134823318
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &137581378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2479,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2107308513
+  m_SortingLayerID: -541748511
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c23c19bcf5b60b944a9284f99cc02a42, type: 3}

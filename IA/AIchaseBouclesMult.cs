@@ -136,7 +136,7 @@ public class AIchaseBouclesMult : MonoBehaviour
                     spurt = 0;
                     if (distance < 1.5)
                     {
-                        player.gameObject.GetComponent<PlayerHealth>().UpdateHealth(attackdmg);
+                        player.gameObject.GetComponent<PlayerHealthMult>().UpdateHealth(attackdmg);
                         activate = false;
                     }
                 }

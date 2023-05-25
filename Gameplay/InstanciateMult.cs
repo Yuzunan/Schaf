@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class InstanciateMult : MonoBehaviour
+public class InstanciateMult : NetworkBehaviour
 {
     public GameObject[] monster;
     private GameObject monstre = null;
@@ -12,6 +13,14 @@ public class InstanciateMult : MonoBehaviour
     private string[] monstercolor;
     public GameObject color;
     public int stage;
+    
+    public override void OnNetworkSpawn()
+    {
+        if (!IsServer)
+        {
+            Destroy(this);
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -89,7 +98,7 @@ public class InstanciateMult : MonoBehaviour
         }
         else
         {
-            if (player.GetComponent<PlayerHealth>().spriteRenderer.sprite != DeadSprite)
+            if (player.GetComponent<PlayerHealthMult>().spriteRenderer.sprite != DeadSprite)
                 Start();
         }
     }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Instanciate2Mult : MonoBehaviour
+public class Instanciate2Mult : NetworkBehaviour
 {
     public GameObject[] monster;
     private GameObject monstre = null;
@@ -24,6 +25,14 @@ public class Instanciate2Mult : MonoBehaviour
         }
         StartCoroutine(waiter());
 
+    }
+    
+    public override void OnNetworkSpawn()
+    {
+        if (!IsServer)
+        {
+            Destroy(this);
+        }
     }
 
     void Spawn()
@@ -99,7 +108,7 @@ public class Instanciate2Mult : MonoBehaviour
         }
         else
         {
-            if (player.GetComponent<PlayerHealth>().spriteRenderer.sprite != DeadSprite && waited)
+            if (player.GetComponent<PlayerHealthMult>().spriteRenderer.sprite != DeadSprite && waited)
                 Spawn();
         }
     }

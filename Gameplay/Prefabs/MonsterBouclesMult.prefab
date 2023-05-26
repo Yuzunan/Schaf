@@ -147,6 +147,14 @@ MonoBehaviour:
   - {fileID: 7453493644489401714, guid: babd39cf585b6d740893f10d830f71f3, type: 3}
   - {fileID: 4524305105961492697, guid: 4ae0c68429d60e940946c6ab6380e0f4, type: 3}
   AttackAnim: {fileID: 714614985857884674, guid: 6399ecbad1ac398408315e620620e820, type: 3}
+  DestroyAnims:
+  - {fileID: 5592631891537317407, guid: 5fdb112b993d9fe4b8394080ef4b36ac, type: 3}
+  - {fileID: 3508953316882843580, guid: dd7cd9a10f20e294a90e6cf3c25952d9, type: 3}
+  - {fileID: 2617851524748883470, guid: 703a875b00a19324db475fed9ca48318, type: 3}
+  - {fileID: 317124734414675378, guid: add84bceb3229de429fe940e9df79120, type: 3}
+  - {fileID: 6364490032353866960, guid: 6436735ad6e46884aad743499ebfad3d, type: 3}
+  - {fileID: 8115285848786603202, guid: 464aa3bc2df7043449179a8da86e20b2, type: 3}
+  DestroyAnim: {fileID: 5592631891537317407, guid: 5fdb112b993d9fe4b8394080ef4b36ac, type: 3}
   attackdmg: 1
 --- !u!114 &-8040517076382951031
 MonoBehaviour:

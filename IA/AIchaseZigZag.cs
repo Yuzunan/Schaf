@@ -29,6 +29,8 @@ public class AIchaseZigZag : MonoBehaviour
     private Vector2 AddVector;
     public GameObject[] AttackAnims;
     public GameObject AttackAnim;
+    public GameObject[] DestroyAnims;
+    public GameObject DestroyAnim;
     private bool attack = false;
     private GameObject anim = null;
     private SpriteRenderer AttAnim =null;
@@ -47,6 +49,7 @@ public class AIchaseZigZag : MonoBehaviour
             DownSprite = DownSprites[0];
             RightSprite = RightSprites[0];
             AttackAnim = AttackAnims[0];
+            DestroyAnim = DestroyAnims[0];
         }
         if (monstercolor == "Green")
         {
@@ -55,6 +58,7 @@ public class AIchaseZigZag : MonoBehaviour
             DownSprite = DownSprites[1];
             RightSprite = RightSprites[1];
             AttackAnim = AttackAnims[1];
+            DestroyAnim = DestroyAnims[1];
         }
         if (monstercolor == "Orange")
         {
@@ -63,6 +67,7 @@ public class AIchaseZigZag : MonoBehaviour
             DownSprite = DownSprites[2];
             RightSprite = RightSprites[2];
             AttackAnim = AttackAnims[2];
+            DestroyAnim = DestroyAnims[2];
         }
         if (monstercolor == "Blue")
         {
@@ -71,6 +76,7 @@ public class AIchaseZigZag : MonoBehaviour
             DownSprite = DownSprites[3];
             RightSprite = RightSprites[3];
             AttackAnim = AttackAnims[3];
+            DestroyAnim = DestroyAnims[3];
         }
         if (monstercolor == "Yellow")
         {
@@ -79,6 +85,7 @@ public class AIchaseZigZag : MonoBehaviour
             DownSprite = DownSprites[4];
             RightSprite = RightSprites[4];
             AttackAnim = AttackAnims[4];
+            DestroyAnim = DestroyAnims[4];
         }
         if (monstercolor == "Purple")
         {
@@ -87,6 +94,7 @@ public class AIchaseZigZag : MonoBehaviour
             DownSprite = DownSprites[5];
             RightSprite = RightSprites[5];
             AttackAnim = AttackAnims[5];
+            DestroyAnim = DestroyAnims[5];
         }
     }
 
@@ -169,6 +177,15 @@ public class AIchaseZigZag : MonoBehaviour
                     if (anim is null)
                     {
                         anim = Instantiate(AttackAnim, new Vector3(-120, 5, 0), Quaternion.identity);
+                        AttAnim = anim.GetComponent<SpriteRenderer>();
+                    }
+                    spriteRenderer.sprite = AttAnim.sprite;
+                }
+                else
+                {
+                    if (anim is null)
+                    {
+                        anim = Instantiate(DestroyAnim, new Vector3(-120, 5, 0), Quaternion.identity);
                         AttAnim = anim.GetComponent<SpriteRenderer>();
                     }
                     spriteRenderer.sprite = AttAnim.sprite;

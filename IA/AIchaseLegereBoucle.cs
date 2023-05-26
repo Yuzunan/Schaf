@@ -29,9 +29,11 @@ public class AIchaseLegereBoucle : MonoBehaviour
     private Vector2 AddVector;
     private float sign;
     public float attackdmg;
-    public SpriteRenderer[] AttackAnims;
-    public SpriteRenderer AttackAnim;
+    public GameObject[] AttackAnims;
+    public GameObject AttackAnim;
     private bool attack = false;
+    private GameObject anim = null;
+    private SpriteRenderer AttAnim =null;
     
     // Start is called before the first frame update
     void Start()
@@ -167,13 +169,23 @@ public class AIchaseLegereBoucle : MonoBehaviour
             {
                 yield return new WaitForSecondsRealtime(2);
                 this.GameObject().SetActive(false);
+                Destroy(anim);
+                anim = null;
             }
 
             if (Time.deltaTime != 0)
             {
                 if (attack)
-                    spriteRenderer.sprite = AttackAnim.sprite;
+                {
+                    if (anim is null)
+                    {
+                        anim = Instantiate(AttackAnim, new Vector3(-120, 5, 0), Quaternion.identity);
+                        AttAnim = anim.GetComponent<SpriteRenderer>();
+                    }
+                    spriteRenderer.sprite = AttAnim.sprite;
+                }
                 StartCoroutine(waiter());
+                
             }
         }
     }

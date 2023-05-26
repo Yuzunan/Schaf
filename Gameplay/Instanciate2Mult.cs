@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Instanciate2Mult : MonoBehaviour
+public class Instanciate2Mult : NetworkBehaviour
 {
     public GameObject[] monster;
     private GameObject monstre = null;
@@ -11,8 +12,8 @@ public class Instanciate2Mult : MonoBehaviour
     public Transform player;
     private string[] monstercolor;
     public GameObject color;
-    public int stage;
     private bool waited = false;
+    private NetworkObject m_SpawnedNetworkObject;
     
     // Start is called before the first frame update
     void Start()
@@ -23,49 +24,26 @@ public class Instanciate2Mult : MonoBehaviour
             waited = true;
         }
         StartCoroutine(waiter());
-
     }
 
     void Spawn()
     {
+        if (!IsServer)
+        {
+            return;
+        }
+        
         int num = Random.Range(0, 3);
         place = Random.Range((float)-8.0, (float)8.0);
         while (place<4 && place>-4)
             place = Random.Range((float)-8.0, (float)8.0);
+        
         monstre = Instantiate(monster[num], new Vector3(place, 5, 0), Quaternion.identity);
         
         int icolor = Random.Range(0, 6);
-        if (stage == 1)
-        {
-            monstercolor = new string[]{"Red" ,"Green"};
-            icolor = Random.Range(0, 2);
-            if (monster[num].name == "MonsterZigZagMult")
-                monstre.GetComponent<AIchaseZigZagMult>().speed = 2;
-            else if (monster[num].name == "MonsterBouclesMult")
-                monstre.GetComponent<AIchaseBouclesMult>().speed = 2;
-            else
-                monstre.GetComponent<AIchaseLegereBoucleMult>().speed = 2;
-        }
-        else if (stage == 2)
-        {
-            monstercolor = new string[]{"Orange","Blue"};
-            icolor = Random.Range(0, 2);
-            if (monster[num].name == "MonsterZigZagMult")
-                monstre.GetComponent<AIchaseZigZagMult>().speed = 3;
-            else if (monster[num].name == "MonsterBouclesMult")
-                monstre.GetComponent<AIchaseBouclesMult>().speed = 3;
-            else
-                monstre.GetComponent<AIchaseLegereBoucleMult>().speed = 3;
-        }
-        else if (stage == 3)
-        {
-            monstercolor = new string[]{"Yellow","Purple"};
-            icolor = Random.Range(0, 2);
-        }
-        else
-        {
-            monstercolor = new string[]{"Red" ,"Green","Orange","Blue","Yellow","Purple"};
-        }
+
+        monstercolor = new string[]{"Red" ,"Green","Orange","Blue","Yellow","Purple"};
+        
         if (monster[num].name == "MonsterZigZagMult")
         {
             monstre.GetComponent<AIchaseZigZagMult>().monstercolor = monstercolor[icolor];
@@ -84,6 +62,8 @@ public class Instanciate2Mult : MonoBehaviour
             monstre.GetComponent<AIchaseLegereBoucleMult>().player = player;
             monstre.GetComponent<AIchaseLegereBoucleMult>().color = color;
         }
+        m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();
+        m_SpawnedNetworkObject.Spawn();
         waited = true;
     }
     // Update is called once per frame

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 253168334721005296}
   - component: {fileID: 253168334721005297}
   - component: {fileID: 253168334721005298}
+  - component: {fileID: 2770771532410929554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -103,3 +104,19 @@ MonoBehaviour:
   OneLifeSprite: {fileID: 21300000, guid: 0c88d3cca45536a49a48ebf3e938f699, type: 3}
   TwoLifeSprite: {fileID: 21300000, guid: edf166ef10fe5ec459750880501a1115, type: 3}
   ThreeLifeSprite: {fileID: 21300000, guid: d201b37ef97ad744b923c925afcba39d, type: 3}
+--- !u!114 &2770771532410929554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253168334721005303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

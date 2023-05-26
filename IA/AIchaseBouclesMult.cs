@@ -28,11 +28,7 @@ public class AIchaseBouclesMult : MonoBehaviour
     private float t;
     private Vector2 AddVector;
     private float sign;
-    public GameObject[] AttackAnims;
-    public GameObject AttackAnim;
-    private bool attack = false;
-    private GameObject anim = null;
-    private SpriteRenderer AttAnim =null;
+
     public float attackdmg;
     // Start is called before the first frame update
     void Start()
@@ -47,7 +43,6 @@ public class AIchaseBouclesMult : MonoBehaviour
             LeftSprite = LeftSprites[0];
             DownSprite = DownSprites[0];
             RightSprite = RightSprites[0];
-            AttackAnim = AttackAnims[0];
         }
         if (monstercolor == "Green")
         {
@@ -55,7 +50,6 @@ public class AIchaseBouclesMult : MonoBehaviour
             LeftSprite = LeftSprites[1];
             DownSprite = DownSprites[1];
             RightSprite = RightSprites[1];
-            AttackAnim = AttackAnims[1];
         }
         if (monstercolor == "Orange")
         {
@@ -63,7 +57,6 @@ public class AIchaseBouclesMult : MonoBehaviour
             LeftSprite = LeftSprites[2];
             DownSprite = DownSprites[2];
             RightSprite = RightSprites[2];
-            AttackAnim = AttackAnims[2];
         }
         if (monstercolor == "Blue")
         {
@@ -71,7 +64,6 @@ public class AIchaseBouclesMult : MonoBehaviour
             LeftSprite = LeftSprites[3];
             DownSprite = DownSprites[3];
             RightSprite = RightSprites[3];
-            AttackAnim = AttackAnims[3];
         }
         if (monstercolor == "Yellow")
         {
@@ -79,7 +71,6 @@ public class AIchaseBouclesMult : MonoBehaviour
             LeftSprite = LeftSprites[4];
             DownSprite = DownSprites[4];
             RightSprite = RightSprites[4];
-            AttackAnim = AttackAnims[4];
         }
         if (monstercolor == "Purple")
         {
@@ -87,7 +78,6 @@ public class AIchaseBouclesMult : MonoBehaviour
             LeftSprite = LeftSprites[5];
             DownSprite = DownSprites[5];
             RightSprite = RightSprites[5];
-            AttackAnim = AttackAnims[5];
         }
     }
 
@@ -148,7 +138,6 @@ public class AIchaseBouclesMult : MonoBehaviour
                     {
                         player.gameObject.GetComponent<PlayerHealth>().UpdateHealth(attackdmg);
                         activate = false;
-                        attack = true;
                     }
                 }
             }
@@ -159,24 +148,9 @@ public class AIchaseBouclesMult : MonoBehaviour
             {
                 yield return new WaitForSecondsRealtime(2);
                 this.GameObject().SetActive(false);
-                Destroy(anim);
-                anim = null;
             }
-
             if (Time.deltaTime != 0)
-            {
-                if (attack)
-                {
-                    if (anim is null)
-                    {
-                        anim = Instantiate(AttackAnim, new Vector3(-120, 5, 0), Quaternion.identity);
-                        AttAnim = anim.GetComponent<SpriteRenderer>();
-                    }
-                    spriteRenderer.sprite = AttAnim.sprite;
-                }
                 StartCoroutine(waiter());
-                
-            }
         }
     }
 }

@@ -138,11 +138,3 @@ MonoBehaviour:
   distanceSpurt: 3
   activate: 1
   attackdmg: 1
-  AttackAnims:
-  - {fileID: 714614985857884674, guid: 6399ecbad1ac398408315e620620e820, type: 3}
-  - {fileID: 5109279149424329597, guid: f09baec060c546646999fcbb5eea4b53, type: 3}
-  - {fileID: 8879316039465870646, guid: 5a24836f535e13f469d84dd88c3a371f, type: 3}
-  - {fileID: 514735119476004283, guid: 1b6f578fced635d4291bf439cdcc0031, type: 3}
-  - {fileID: 7453493644489401714, guid: babd39cf585b6d740893f10d830f71f3, type: 3}
-  - {fileID: 4524305105961492697, guid: 4ae0c68429d60e940946c6ab6380e0f4, type: 3}
-  AttackAnim: {fileID: 714614985857884674, guid: 6399ecbad1ac398408315e620620e820, type: 3}

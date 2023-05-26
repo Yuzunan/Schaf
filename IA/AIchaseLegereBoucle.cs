@@ -28,8 +28,11 @@ public class AIchaseLegereBoucle : MonoBehaviour
     private float t;
     private Vector2 AddVector;
     private float sign;
-
     public float attackdmg;
+    public SpriteRenderer[] AttackAnims;
+    public SpriteRenderer AttackAnim;
+    private bool attack = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
             LeftSprite = LeftSprites[0];
             DownSprite = DownSprites[0];
             RightSprite = RightSprites[0];
+            AttackAnim = AttackAnims[0];
         }
         if (monstercolor == "Green")
         {
@@ -59,6 +63,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
             LeftSprite = LeftSprites[1];
             DownSprite = DownSprites[1];
             RightSprite = RightSprites[1];
+            AttackAnim = AttackAnims[1];
         }
         if (monstercolor == "Orange")
         {
@@ -66,6 +71,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
             LeftSprite = LeftSprites[2];
             DownSprite = DownSprites[2];
             RightSprite = RightSprites[2];
+            AttackAnim = AttackAnims[2];
         }
         if (monstercolor == "Blue")
         {
@@ -73,6 +79,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
             LeftSprite = LeftSprites[3];
             DownSprite = DownSprites[3];
             RightSprite = RightSprites[3];
+            AttackAnim = AttackAnims[3];
         }
         if (monstercolor == "Yellow")
         {
@@ -80,6 +87,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
             LeftSprite = LeftSprites[4];
             DownSprite = DownSprites[4];
             RightSprite = RightSprites[4];
+            AttackAnim = AttackAnims[4];
         }
         if (monstercolor == "Purple")
         {
@@ -87,6 +95,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
             LeftSprite = LeftSprites[5];
             DownSprite = DownSprites[5];
             RightSprite = RightSprites[5];
+            AttackAnim = AttackAnims[5];
         }
     }
 
@@ -147,6 +156,7 @@ public class AIchaseLegereBoucle : MonoBehaviour
                     {
                         player.gameObject.GetComponent<PlayerHealth>().UpdateHealth(attackdmg);
                         activate = false;
+                        attack = true;
                     }
                 }
             }
@@ -158,8 +168,13 @@ public class AIchaseLegereBoucle : MonoBehaviour
                 yield return new WaitForSecondsRealtime(2);
                 this.GameObject().SetActive(false);
             }
+
             if (Time.deltaTime != 0)
+            {
+                if (attack)
+                    spriteRenderer.sprite = AttackAnim.sprite;
                 StartCoroutine(waiter());
+            }
         }
     }
 }

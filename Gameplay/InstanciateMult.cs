@@ -26,6 +26,7 @@ public class InstanciateMult : NetworkBehaviour
         while (place<4 && place>-4)
             place = Random.Range((float)-8.0, (float)8.0);
         monstre = Instantiate(monster[num], new Vector3(place, 5, 0), Quaternion.identity);
+        m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();
         
         int icolor = Random.Range(0, 6);
         
@@ -33,26 +34,25 @@ public class InstanciateMult : NetworkBehaviour
 
         if (monster[num].name == "MonsterZigZagMult")
         {
-            monstre.GetComponent<AIchaseZigZagMult>().monstercolor = monstercolor[icolor];
-            monstre.GetComponent<AIchaseZigZagMult>().player = player;
-            monstre.GetComponent<AIchaseZigZagMult>().color = color;
+            m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().monstercolor = monstercolor[icolor];
+            m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().player = player;
+            m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().color = color;
         }
         else if (monster[num].name == "MonsterBouclesMult")
         {
-            monstre.GetComponent<AIchaseBouclesMult>().monstercolor = monstercolor[icolor];
-            monstre.GetComponent<AIchaseBouclesMult>().player = player;
-            monstre.GetComponent<AIchaseBouclesMult>().color = color;
+            m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().monstercolor = monstercolor[icolor];
+            m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().player = player;
+            m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().color = color;
         }
         else
         {
-            monstre.GetComponent<AIchaseLegereBoucleMult>().monstercolor = monstercolor[icolor];
-            monstre.GetComponent<AIchaseLegereBoucleMult>().player = player;
-            monstre.GetComponent<AIchaseLegereBoucleMult>().color = color;
+            m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().monstercolor = monstercolor[icolor];
+            m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().player = player;
+            m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().color = color;
         }
-
-        m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();
+        
         m_SpawnedNetworkObject.Spawn();
-
+        
     }
 
     // Update is called once per frame

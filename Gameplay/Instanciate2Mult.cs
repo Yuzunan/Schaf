@@ -79,7 +79,7 @@ public class Instanciate2Mult : NetworkBehaviour
         }
         else
         {
-            if (player.GetComponent<PlayerHealth>().spriteRenderer.sprite != DeadSprite && waited)
+            if (player.GetComponent<PlayerHealthMult>().spriteRenderer.sprite != DeadSprite && waited)
                 Spawn();
         }
     }

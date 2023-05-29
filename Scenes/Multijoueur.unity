@@ -558,11 +558,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253168334721005296, guid: c048941dd1f2510498f080b3af6387fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.179393
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 253168334721005296, guid: c048941dd1f2510498f080b3af6387fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1330244
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 253168334721005296, guid: c048941dd1f2510498f080b3af6387fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -687,8 +687,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389924089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.47, y: 0.2, z: 7.453056}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.47, y: 0.19999999, z: 7.453056}
   m_LocalScale: {x: 0.15736876, y: 0.13914151, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2584,10 +2584,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cda4cb4022918246a1d37ed4957ae87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster:
-  - {fileID: 3815242164293467842, guid: de897acdbc083124c954883e236aaa5a, type: 3}
-  - {fileID: 3815242164293467842, guid: f23714ecb8661d6448f591bcf2b4452d, type: 3}
+  monsterRGB:
   - {fileID: 3815242164293467842, guid: 4a6ec8fa3376ce142b594b65b5482994, type: 3}
+  - {fileID: 3815242164293467842, guid: b0603416a79f6544a961847ee294aa88, type: 3}
+  - {fileID: 3815242164293467842, guid: 2395bb2364c793c4aab6ca767c4ecd40, type: 3}
+  - {fileID: 3815242164293467842, guid: f23714ecb8661d6448f591bcf2b4452d, type: 3}
+  - {fileID: 3815242164293467842, guid: a63b2cc195297774abb2968d7a7b6134, type: 3}
+  - {fileID: 3815242164293467842, guid: 5616e1795f03b7c4fa0465b97e81726a, type: 3}
+  - {fileID: 3815242164293467842, guid: de897acdbc083124c954883e236aaa5a, type: 3}
+  - {fileID: 3815242164293467842, guid: 4a37279c5a0cce74e8a89c81466e1b3a, type: 3}
+  - {fileID: 3815242164293467842, guid: 5420089e90bf0584eadae9d10562366f, type: 3}
+  monsterOYP:
+  - {fileID: 3815242164293467842, guid: 43e7f96a949814a4e9a4438e62704d8d, type: 3}
+  - {fileID: 3815242164293467842, guid: c4fe4627ea7680649b9a0a204207f9e7, type: 3}
+  - {fileID: 3815242164293467842, guid: fbff11eaaf3d91741b736452f0d5eefa, type: 3}
+  - {fileID: 3815242164293467842, guid: 1701caa02cddbb4459b73b17a46c30a7, type: 3}
+  - {fileID: 3815242164293467842, guid: f2c1d7262f2435e4fade37c5e2043caa, type: 3}
+  - {fileID: 3815242164293467842, guid: c1a62863584e72b4fb465fcd88baeaf7, type: 3}
+  - {fileID: 3815242164293467842, guid: 2525966818b83fb47bee9a5e9e53d623, type: 3}
+  - {fileID: 3815242164293467842, guid: b74af42d4917b0d4493cf901fb89e973, type: 3}
+  - {fileID: 3815242164293467842, guid: 7b0abc0f4f04e884fa049a6734149a73, type: 3}
   DeadSprite: {fileID: 21300000, guid: d66023558e226f949a7fad29403184f9, type: 3}
   player: {fileID: 355719705}
   color: {fileID: 282507906}
@@ -2652,10 +2668,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef2ac43148f8884a9e73cc7dc403cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster:
-  - {fileID: 3815242164293467842, guid: de897acdbc083124c954883e236aaa5a, type: 3}
-  - {fileID: 3815242164293467842, guid: f23714ecb8661d6448f591bcf2b4452d, type: 3}
+  monsterRGB:
   - {fileID: 3815242164293467842, guid: 4a6ec8fa3376ce142b594b65b5482994, type: 3}
+  - {fileID: 3815242164293467842, guid: b0603416a79f6544a961847ee294aa88, type: 3}
+  - {fileID: 3815242164293467842, guid: 2395bb2364c793c4aab6ca767c4ecd40, type: 3}
+  - {fileID: 3815242164293467842, guid: f23714ecb8661d6448f591bcf2b4452d, type: 3}
+  - {fileID: 3815242164293467842, guid: a63b2cc195297774abb2968d7a7b6134, type: 3}
+  - {fileID: 3815242164293467842, guid: 5616e1795f03b7c4fa0465b97e81726a, type: 3}
+  - {fileID: 3815242164293467842, guid: de897acdbc083124c954883e236aaa5a, type: 3}
+  - {fileID: 3815242164293467842, guid: 4a37279c5a0cce74e8a89c81466e1b3a, type: 3}
+  - {fileID: 3815242164293467842, guid: 5420089e90bf0584eadae9d10562366f, type: 3}
+  monsterOYP:
+  - {fileID: 3815242164293467842, guid: 43e7f96a949814a4e9a4438e62704d8d, type: 3}
+  - {fileID: 3815242164293467842, guid: c4fe4627ea7680649b9a0a204207f9e7, type: 3}
+  - {fileID: 3815242164293467842, guid: fbff11eaaf3d91741b736452f0d5eefa, type: 3}
+  - {fileID: 3815242164293467842, guid: 1701caa02cddbb4459b73b17a46c30a7, type: 3}
+  - {fileID: 3815242164293467842, guid: f2c1d7262f2435e4fade37c5e2043caa, type: 3}
+  - {fileID: 3815242164293467842, guid: c1a62863584e72b4fb465fcd88baeaf7, type: 3}
+  - {fileID: 3815242164293467842, guid: 2525966818b83fb47bee9a5e9e53d623, type: 3}
+  - {fileID: 3815242164293467842, guid: b74af42d4917b0d4493cf901fb89e973, type: 3}
+  - {fileID: 3815242164293467842, guid: 7b0abc0f4f04e884fa049a6734149a73, type: 3}
   DeadSprite: {fileID: 21300000, guid: d66023558e226f949a7fad29403184f9, type: 3}
   player: {fileID: 355719705}
   color: {fileID: 282507906}

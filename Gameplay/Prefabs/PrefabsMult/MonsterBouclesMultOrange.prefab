@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8040517076382951031}
   - component: {fileID: -7251161950382067886}
   m_Layer: 0
-  m_Name: MonsterBouclesMultOrange
+  m_Name: MonsterBouclesMultORANGE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

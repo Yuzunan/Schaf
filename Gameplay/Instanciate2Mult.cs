@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class Instanciate2Mult : NetworkBehaviour
 {
-    public GameObject[] monsterRGB;
-    public GameObject[] monsterOYP;
+    public GameObject[] monster;
     private GameObject monstre = null;
     public Sprite DeadSprite;
     private float place;
@@ -38,14 +37,16 @@ public class Instanciate2Mult : NetworkBehaviour
         if (IsServer)
         {
             
-            monstre = Instantiate(monsterRGB[num], new Vector3(place, 5, 0), Quaternion.identity);
+            monstre = Instantiate(monster[num], new Vector3(place, 5, 0), Quaternion.identity);
             
-            if (monsterRGB[num].name == "MonsterZigZagMult" || monsterRGB[num].name == "MonsterZigZagMultGREEN" || monsterRGB[num].name == "MonsterZigZagMultBLUE")
+            if (monster[num].name == "MonsterZigZagMultORANGE" || monster[num].name == "MonsterZigZagMultPURPLE" || monster[num].name == "MonsterZigZagMultYELLOW" 
+                || monster[num].name == "MonsterZigZagMult" || monster[num].name == "MonsterZigZagMultGREEN" || monster[num].name == "MonsterZigZagMultBLUE")
             {
                 monstre.GetComponent<AIchaseZigZagMult>().player = player;
                 monstre.GetComponent<AIchaseZigZagMult>().color = color;
             }
-            else if (monsterRGB[num].name == "MonsterBouclesMult" || monsterRGB[num].name == "MonsterBouclesMultGREEN" || monsterRGB[num].name == "MonsterBouclesMultBLUE")
+            else if (monster[num].name == "MonsterBouclesMultORANGE" || monster[num].name == "MonsterBouclesMultPURPLE" || monster[num].name == "MonsterBouclesMultYELLOW"
+                     || monster[num].name == "MonsterBouclesMult" || monster[num].name == "MonsterBouclesMultGREEN" || monster[num].name == "MonsterBouclesMultBLUE")
             {
                 monstre.GetComponent<AIchaseBouclesMult>().player = player;
                 monstre.GetComponent<AIchaseBouclesMult>().color = color;
@@ -59,24 +60,6 @@ public class Instanciate2Mult : NetworkBehaviour
         else
         {
             return;
-            monstre = Instantiate(monsterOYP[num], new Vector3(place, 5, 0), Quaternion.identity);
-            m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();
-            
-            if (monsterOYP[num].name == "MonsterZigZagMultORANGE" || monsterOYP[num].name == "MonsterZigZagMultPURPLE" || monsterOYP[num].name == "MonsterZigZagMultYELLOW")
-            {
-                m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().player = player;
-                m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().color = color;
-            }
-            else if (monsterOYP[num].name == "MonsterBouclesMultORANGE" || monsterOYP[num].name == "MonsterBouclesMultPURPLE" || monsterOYP[num].name == "MonsterBouclesMultYELLOW")
-            {
-                m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().player = player;
-                m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().color = color;
-            }
-            else
-            {
-                m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().player = player;
-                m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().color = color;
-            }
         }
         
         m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();

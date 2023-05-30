@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class InstanciateMult : NetworkBehaviour
 {
-    public GameObject[] monsterRGB;
-    public GameObject[] monsterOYP;
+    public GameObject[] monster;
     private GameObject monstre = null;
     public Sprite DeadSprite;
     private float place;
@@ -18,43 +17,27 @@ public class InstanciateMult : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int num = Random.Range(0, 9);
+        int num = Random.Range(0, 18);
         place = Random.Range((float)-8.0, (float)8.0);
         while (place<4 && place>-4)
             place = Random.Range((float)-8.0, (float)8.0);
 
-        if (IsServer)
+        if (!IsServer)
         {
             return;
-            monstre = Instantiate(monsterRGB[num], new Vector3(place, 5, 0), Quaternion.identity);
-            m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();
-            
-            if (monsterRGB[num].name == "MonsterZigZagMult" || monsterRGB[num].name == "MonsterZigZagMultGREEN" || monsterRGB[num].name == "MonsterZigZagMultBLUE")
-            {
-                m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().player = player;
-                m_SpawnedNetworkObject.GetComponent<AIchaseZigZagMult>().color = color;
-            }
-            else if (monsterRGB[num].name == "MonsterBouclesMult" || monsterRGB[num].name == "MonsterBouclesMultGREEN" || monsterRGB[num].name == "MonsterBouclesMultBLUE")
-            {
-                m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().player = player;
-                m_SpawnedNetworkObject.GetComponent<AIchaseBouclesMult>().color = color;
-            }
-            else
-            {
-                m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().player = player;
-                m_SpawnedNetworkObject.GetComponent<AIchaseLegereBoucleMult>().color = color;
-            }
         }
         else
         {
-            monstre = Instantiate(monsterOYP[num], new Vector3(place, 5, 0), Quaternion.identity);
+            monstre = Instantiate(monster[num], new Vector3(place, 5, 0), Quaternion.identity);
             
-            if (monsterOYP[num].name == "MonsterZigZagMultORANGE" || monsterOYP[num].name == "MonsterZigZagMultPURPLE" || monsterOYP[num].name == "MonsterZigZagMultYELLOW")
+            if (monster[num].name == "MonsterZigZagMultORANGE" || monster[num].name == "MonsterZigZagMultPURPLE" || monster[num].name == "MonsterZigZagMultYELLOW" 
+                || monster[num].name == "MonsterZigZagMult" || monster[num].name == "MonsterZigZagMultGREEN" || monster[num].name == "MonsterZigZagMultBLUE")
             {
                 monstre.GetComponent<AIchaseZigZagMult>().player = player;
                 monstre.GetComponent<AIchaseZigZagMult>().color = color;
             }
-            else if (monsterOYP[num].name == "MonsterBouclesMultORANGE" || monsterOYP[num].name == "MonsterBouclesMultPURPLE" || monsterOYP[num].name == "MonsterBouclesMultYELLOW")
+            else if (monster[num].name == "MonsterBouclesMultORANGE" || monster[num].name == "MonsterBouclesMultPURPLE" || monster[num].name == "MonsterBouclesMultYELLOW"
+                     || monster[num].name == "MonsterBouclesMult" || monster[num].name == "MonsterBouclesMultGREEN" || monster[num].name == "MonsterBouclesMultBLUE")
             {
                 monstre.GetComponent<AIchaseBouclesMult>().player = player;
                 monstre.GetComponent<AIchaseBouclesMult>().color = color;
@@ -66,8 +49,8 @@ public class InstanciateMult : NetworkBehaviour
             }
         }
         m_SpawnedNetworkObject = monstre.GetComponent<NetworkObject>();
-        SpawnServerRpc();
-        
+        m_SpawnedNetworkObject.Spawn();
+
     }
 
     // Update is called once per frame
@@ -86,12 +69,6 @@ public class InstanciateMult : NetworkBehaviour
             if (player.GetComponent<PlayerHealthMult>().spriteRenderer.sprite != DeadSprite)
                 Start();
         }
-    }
-
-    [ServerRpc]
-    private void SpawnServerRpc()
-    {
-        m_SpawnedNetworkObject.Spawn();
     }
     
 }

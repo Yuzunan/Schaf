@@ -109,6 +109,11 @@ public class AIchaseZigZagMult : NetworkBehaviour
         {
             color = GameObject.Find("Bullets");
         }
+
+        if (player is null)
+        {
+            player = GameObject.Find("Player Mult").transform;
+        }
         
         if (activate && distance >= 1 && Time.deltaTime != 0)
         {

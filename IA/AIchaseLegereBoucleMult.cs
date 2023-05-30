@@ -120,6 +120,11 @@ public class AIchaseLegereBoucleMult : NetworkBehaviour
             color = GameObject.Find("Bullets");
         }
         
+        if (player is null)
+        {
+            player = GameObject.Find("Player Mult").transform;
+        }
+        
         if (activate && distance >= 1 && Time.deltaTime != 0)
         {
             if(Input.GetMouseButtonDown(0) && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) <= 1.4) 

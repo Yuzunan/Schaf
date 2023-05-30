@@ -43,18 +43,15 @@ public class Instanciate2Mult : NetworkBehaviour
                 || monster[num].name == "MonsterZigZagMult" || monster[num].name == "MonsterZigZagMultGREEN" || monster[num].name == "MonsterZigZagMultBLUE")
             {
                 monstre.GetComponent<AIchaseZigZagMult>().player = player;
-                monstre.GetComponent<AIchaseZigZagMult>().color = color;
             }
             else if (monster[num].name == "MonsterBouclesMultORANGE" || monster[num].name == "MonsterBouclesMultPURPLE" || monster[num].name == "MonsterBouclesMultYELLOW"
                      || monster[num].name == "MonsterBouclesMult" || monster[num].name == "MonsterBouclesMultGREEN" || monster[num].name == "MonsterBouclesMultBLUE")
             {
                 monstre.GetComponent<AIchaseBouclesMult>().player = player;
-                monstre.GetComponent<AIchaseBouclesMult>().color = color;
             }
             else
             {
                 monstre.GetComponent<AIchaseLegereBoucleMult>().player = player;
-                monstre.GetComponent<AIchaseLegereBoucleMult>().color = color;
             }
         }
         else

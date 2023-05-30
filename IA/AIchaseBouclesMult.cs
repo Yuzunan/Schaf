@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
-public class AIchaseBouclesMult : MonoBehaviour
+public class AIchaseBouclesMult : NetworkBehaviour
 {
     public Transform player;
     public GameObject color;
@@ -97,11 +98,18 @@ public class AIchaseBouclesMult : MonoBehaviour
             AttackAnim = AttackAnims[5];
             DestroyAnim = DestroyAnims[5];
         }
+
+        color = GameObject.Find("Bullets");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (color is null)
+        {
+            color = GameObject.Find("Bullets");
+        }
+        
         if (activate && distance >= 1 && Time.deltaTime != 0)
         {
             if(Input.GetMouseButtonDown(0) && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) <= 1.4) 
@@ -114,6 +122,7 @@ public class AIchaseBouclesMult : MonoBehaviour
                     (color.CompareTag("Purple") && CompareTag("Yellow")))
                 {
                     activate = false;
+                    destroyServerRpc();
                 }
                     
             }
@@ -195,5 +204,11 @@ public class AIchaseBouclesMult : MonoBehaviour
                 
             }
         }
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void destroyServerRpc()
+    {
+        activate = false;
     }
 }

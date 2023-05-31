@@ -38,17 +38,17 @@ public class Instanciate : MonoBehaviour
         {
             monstercolor = new string[]{"Orange","Blue"};
             icolor = Random.Range(0, 2);
-            if (monster[num].name == "MonsterZigZag")
-                monstre.GetComponent<AIchaseZigZag>().speed = 3;
-            else if (monster[num].name == "MonsterBoucles")
-                monstre.GetComponent<AIchaseBoucles>().speed = 3;
-            else
-                monstre.GetComponent<AIchaseLegereBoucle>().speed = 3;
         }
         else if (stage == 3)
         {
             monstercolor = new string[]{"Yellow","Purple"};
             icolor = Random.Range(0, 2);
+            if (monster[num].name == "MonsterZigZag")
+                monstre.GetComponent<AIchaseZigZag>().speed = 4;
+            else if (monster[num].name == "MonsterBoucles")
+                monstre.GetComponent<AIchaseBoucles>().speed = 4;
+            else
+                monstre.GetComponent<AIchaseLegereBoucle>().speed = 4;
         }
         else
         {

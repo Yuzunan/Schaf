@@ -135,7 +135,7 @@ MonoBehaviour:
   LeftSprite: {fileID: 21300000, guid: f37a44e535aefcf4d9b8613c0dc11806, type: 3}
   RightSprite: {fileID: 21300000, guid: da3fd1303a05a2a498e4c333ad423599, type: 3}
   DownSprite: {fileID: 21300000, guid: e4ca97bc516b5634488490deeb9c64c5, type: 3}
-  speed: 4
+  speed: 3
   spurt: 2
   distanceSpurt: 3
   activate: 1
